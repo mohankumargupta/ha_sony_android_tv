@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ha_sony_android_tv/sections.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,18 +64,22 @@ class MainApp extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.only(
               left: 80.0, right: 8.0, top: 40.0, bottom: 8.0),
-          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-            Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
-              TopMenuLeftOfHighlightedText("Icon"),
-              TopMenuHighlightedText(
-                "Home",
-              ),
-              TopMenuRightOfHighlightedText("Weather"),
-              TopMenuText("Dashboards"),
-              TopMenuText("Controls"),
-              TopMenuText("Settings"),
+          child: SingleChildScrollView(
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
+                TopMenuLeftOfHighlightedText("Icon"),
+                TopMenuHighlightedText(
+                  "Home",
+                ),
+                TopMenuRightOfHighlightedText("Weather"),
+                TopMenuText("Dashboards"),
+                TopMenuText("Controls"),
+                TopMenuText("Settings"),
+              ]),
+              const SingleChildScrollView(child: SectionsWidget())
             ]),
-          ]),
+          ),
         ),
       ),
     );
