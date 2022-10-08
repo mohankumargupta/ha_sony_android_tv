@@ -41,7 +41,19 @@ class SectionsWidget extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           itemCount: sections[index].items.length,
                           itemBuilder: (context, i) =>
-                              Text('Item ${sections[index].items[i]}')),
+                              //Text('Item ${sections[index].items[i]}')
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                                child: SizedBox(
+                                    width: 160.0,
+                                    height: 80.0,
+                                    child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                      color: Colors.yellow,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(8.0)),
+                                    ))),
+                              )),
                     ),
                   ]),
             )
