@@ -13,8 +13,10 @@ class Section {
 final sections = [
   Section(GlobalKey(), "Rooms", ["Kitchen", "Lounge", "Bedroom 1", "Rumpus"]),
   Section(GlobalKey(), "Device by Category", ["Light", "Switch", "Sensor"]),
-  Section(GlobalKey(), "Device by Name", ["Light", "Switch", "Sensor"]),
-  Section(GlobalKey(), "Device by Integration", ["Light", "Switch", "Sensor"]),
+  Section(GlobalKey(), "Device by Name",
+      ["Mirabella RGBW", "Mirabella Cool White"]),
+  Section(
+      GlobalKey(), "Device by Integration", ["Google Mini", "ESPHome", "Sun"]),
 ];
 
 class SectionsWidget extends StatelessWidget {
@@ -31,7 +33,7 @@ class SectionsWidget extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 20.0, bottom: 8.0),
-                      child: Text('Item ${sections[index].title}'),
+                      child: Text(sections[index].title),
                     ),
                     //for (final i in sections[index].items) Text(i)
 
@@ -42,17 +44,26 @@ class SectionsWidget extends StatelessWidget {
                           itemCount: sections[index].items.length,
                           itemBuilder: (context, i) =>
                               //Text('Item ${sections[index].items[i]}')
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
                                 child: SizedBox(
                                     width: 160.0,
                                     height: 80.0,
                                     child: DecoratedBox(
-                                        decoration: BoxDecoration(
-                                      color: Colors.yellow,
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(8.0)),
-                                    ))),
+                                      decoration: const BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(8.0)),
+                                      ),
+                                      child: Center(
+                                          child: Text(
+                                        sections[index].items[i],
+                                        style: const TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                    )),
                               )),
                     ),
                   ]),
